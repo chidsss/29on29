@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>20on29</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Londrina+Shadow:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <nav class="nav-bar">
+        <div class="nav-item">
+            <div class="nav-icon comms-icon"></div>
+            <span class="nav-label">COMMS</span>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon gifts-icon"></div>
+            <span class="nav-label">GIFTS</span>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon party-icon"></div>
+            <span class="nav-label">RSVP</span>
+        </div>
+    </nav>
+    
+    <div class="main-content" id="mainContent">
+        <div class="avatar">
+            <img src="avatar.JPG" alt="Avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="avatar-placeholder" style="display: none;">👤</div>
+        </div>
+        <div class="speech-bubble">
+            <p>Hi, Click Comms to start!</p>
+        </div>
+    </div>
+
+    <div class="comms-page" id="commsPage" style="display: none;">
+        <div class="comms-container">
+            <div class="comms-header">
+                <img src="Close -icon.png" alt="Close" class="close-icon">
+                <h2>COMMS</h2>
+            </div>
+            <div class="comms-inner">
+                <div class="comms-content">
+                    <div class="scrollable-text">
+                        <p>A lot of questions about Chidinma's birthday this year. Chidinma is here with answers. Although every birthday is special, this is extra special because it's the long awaited, lightly dreaded - 29on29th. And extra special for you because you get another year of Chidinma in your life. In the words of Jay rock: win, win, win, win.</p>
+                        
+                        <p>To mark another year on this sometimes bright, mostly bleak earth, Chidinma has 3 requests:</p>
+                        
+                        <p><strong>ONE:</strong><br>
+                        A hand-written letter. Her desire is that you wax lyrical preferably about who she is to you, your undying love for her, call to mind moments she has lit up your face and life and close with the finest wishes for this new year and beyond. Not to be pedantic but, she would prefer this letter to be no less than 3 paragraphs. More is most welcome and encouraged. (Chidinma is aware of the seas that stand in the gap between some of us. To remedy this, she asks kindly that those who are unable to physically hand in this letter or drop in her mailbox be magnanimous enough to snap and send to her email. She has a friend who has a printer in her home - who is unaware of the work that lies ahead for machine - there she would print and have your letter physically)</p>
+                        
+                        <p><strong><a href="#" onclick="showGifts()" class="section-link">TWO:</a></strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comms-page" id="rsvpPage" style="display: none;">
+        <div class="comms-container">
+            <div class="comms-header">
+                <img src="Close -icon.png" alt="Close" class="close-icon">
+                <h2>RSVP</h2>
+            </div>
+            <div class="comms-inner">
+                <div class="comms-content">
+                    <div class="scrollable-text">
+                        <p><strong>LASTLY,</strong></p>
+                        
+                        <p>She's still hemming and hawing about a celebration. Her life-long dream is to party with friends to mark this new age. Chidinma is currently crippled with thoughts and will circle back with more information about this in the coming days.</p>
+
+                        <p>If you want to celebrate with her, please <a href="https://partiful.com/e/uGKzZSm2PvBYRjLJw92P" target="_blank" class="section-link">RSVP here</a> in the meantime.</p>
+                        
+                        <p>Thank you for reading thus far. Chidinma loves to yap and is ecstatic that you are loving enough to read till the end. She cannot fathom why her birthday is so late in the year and in the winter but she looks forward to making peppersoup out of the pepper with you.</p>
+                        
+                        <p>Spoonful of my love,<br>
+                        Chidinma<br>
+                        🩷</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comms-page" id="giftsPage" style="display: none;">
+        <div class="comms-container">
+            <div class="comms-header">
+                <img src="Close -icon.png" alt="Close" class="close-icon">
+                <h2>GIFTS</h2>
+            </div>
+            <div class="comms-inner">
+                <div class="comms-content">
+                    <div class="scrollable-text">
+                        <p><strong>TWO:</strong> Chidinma is a young woman riddled with gazillion interests. For her to keep being the light of your life, her interests must continue to be the light of hers. Below is a list of things Chidinma would like for gifts. It must be said, however, that these are a guide. Chidinma values knowledge of her person and would be equally delighted by items not listed in the guide.</p>
+                        
+                        <div class="gift-item">
+                            <a href="https://lululemon.cashstar.com/store/recipient?locale=en-us" target="_blank" class="gift-link">
+                                <div class="gift-card lululemon">
+                                    <img src="lululemon_xxlweb.png" alt="Lululemon" class="gift-image">
+                                </div>
+                                <div class="gift-details">
+                                    <div class="gift-name">Lululemon gift card</div>
+                                    <div class="gift-limit">Unlimited</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="gift-item">
+                            <a href="https://www.curioclass.cc/products/a-gift-card-for-you?srsltid=AfmBOoowueddzrH1HtP_V5q_N20qxIgjtlevPqxC9DoOATwoIvEkUTl_" target="_blank" class="gift-link">
+                                <div class="gift-card curio">
+                                    <img src="curioclass.png" alt="Curio Class" class="gift-image">
+                                </div>
+                                <div class="gift-details">
+                                    <div class="gift-name">Curio class gift card</div>
+                                    <div class="gift-limit">Unlimited</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="gift-item">
+                            <a href="https://kaicollective.com/en-de/collections/tops/products/nao-cotton-logo-embroidered-long-sleeve-top-white?variant=44114847858871" target="_blank" class="gift-link">
+                                <div class="gift-card kai">
+                                    <img src="kai collective.webp" alt="Kai Collective" class="gift-image">
+                                </div>
+                                <div class="gift-details">
+                                    <div class="gift-name">Kai collective long sleeve</div>
+                                    <div class="gift-limit">1 + M</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="gift-item">
+                            <a href="https://www.kulturkaufhaus.de/de/detail/ISBN-2240064231585/Online-Gutschein-Dussmann-das-KulturKaufhaus---Online-Voucher?bpmctrl=bpmrownr.1%7Cforeign.596760-93-0-641668" target="_blank" class="gift-link">
+                                <div class="gift-card dussmann">
+                                    <img src="Dussman.png" alt="Dussmann" class="gift-image">
+                                </div>
+                                <div class="gift-details">
+                                    <div class="gift-name">Dussmann gift card (Vinyls & CDs)</div>
+                                    <div class="gift-limit">Unlimited</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="gift-item">
+                            <div class="gift-card coat">
+                                <div class="gift-placeholder">🧥</div>
+                            </div>
+                            <div class="gift-details">
+                                <div class="gift-name">Coat</div>
+                                <div class="gift-limit">Size M</div>
+                            </div>
+                        </div>
+                        
+                        <div class="gift-item">
+                            <div class="gift-card cash">cash</div>
+                            <div class="gift-details">
+                                <div class="gift-name">Cold hard cash</div>
+                                <div class="gift-limit">Account detail available in USD, EUR & NGN</div>
+                            </div>
+                        </div>
+                        
+                        <div class="gift-item">
+                            <div class="gift-card boot">
+                                <div class="gift-placeholder">👢</div>
+                            </div>
+                            <div class="gift-details">
+                                <div class="gift-name">Boots</div>
+                                <div class="gift-limit">Size 40-41</div>
+                            </div>
+                        </div>
+                        
+                        <div class="gift-item">
+                            <a href="https://www.shopkhoi.com/products/khoi-gift-card?srsltid=AfmBOoqkMjWSrcSJkDEDKqpnnvUEReCxL-pYrPpQR4UROyWNofXplI3b&variant=46637202112802" target="_blank" class="gift-link">
+                                <div class="gift-card shopkhoi">
+                                    <img src="khoi.webp" alt="KHOI" class="gift-image">
+                                </div>
+                                <div class="gift-details">
+                                    <div class="gift-name">Shopkhoi gift card</div>
+                                    <div class="gift-limit">Unlimited</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <p><strong><a href="#" onclick="showRSVP()" class="section-link">THREE:</a></strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page switching functionality
+        document.querySelector('.nav-item:first-child').addEventListener('click', function() {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('commsPage').style.display = 'block';
+            document.getElementById('rsvpPage').style.display = 'none';
+        });
+
+        document.querySelector('.nav-item:nth-child(2)').addEventListener('click', function() {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('giftsPage').style.display = 'block';
+            document.getElementById('commsPage').style.display = 'none';
+            document.getElementById('rsvpPage').style.display = 'none';
+        });
+
+        document.querySelector('.nav-item:last-child').addEventListener('click', function() {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('rsvpPage').style.display = 'block';
+            document.getElementById('commsPage').style.display = 'none';
+            document.getElementById('giftsPage').style.display = 'none';
+        });
+
+        document.querySelectorAll('.close-icon').forEach(function(closeIcon) {
+            closeIcon.addEventListener('click', function() {
+                // Remove active class from all nav items when closing
+                document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+                
+                document.getElementById('commsPage').style.display = 'none';
+                document.getElementById('rsvpPage').style.display = 'none';
+                document.getElementById('giftsPage').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'flex';
+            });
+        });
+        
+        // Section navigation functions
+        function showGifts() {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            // Add active class to gifts nav item
+            document.querySelector('.nav-item:nth-child(2)').classList.add('active');
+            
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('giftsPage').style.display = 'block';
+            document.getElementById('commsPage').style.display = 'none';
+            document.getElementById('rsvpPage').style.display = 'none';
+        }
+        
+        function showRSVP() {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            // Add active class to rsvp nav item
+            document.querySelector('.nav-item:last-child').classList.add('active');
+            
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('rsvpPage').style.display = 'block';
+            document.getElementById('commsPage').style.display = 'none';
+            document.getElementById('giftsPage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

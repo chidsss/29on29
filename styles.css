@@ -1,0 +1,651 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pixelify Sans', monospace;
+    background-color: #FFCEE2;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background pattern with scattered 29on29th text */
+.background-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background-pattern.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    background-color: white;
+    border: 1px solid #6A4E59;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    box-shadow: 1px 1px 0px #6A4E59;
+    padding: 1px;
+    gap: 1px;
+}
+
+.nav-item {
+    flex: 1;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: #FFEDED;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+    position: relative; /* anchor for cue */
+    border: 1px solid #6A4E59;
+}
+
+/* Comms - bottom left corner radius 11px */
+.nav-item:first-child {
+    border-radius: 0 0 0 11px;
+}
+
+/* Gifts - no border radius, just stroke */
+.nav-item:nth-child(2) {
+    border-radius: 0;
+}
+
+/* RSVP - bottom right corner radius 11px */
+.nav-item:last-child {
+    border-radius: 0 0 11px 0;
+}
+
+.nav-item:hover {
+    background-color: #FFD6D6;
+}
+
+.nav-item.active {
+    background-color: #FFF;
+    box-shadow: 0 4px 8px rgba(106, 78, 89, 0.3);
+    transform: translateY(-2px);
+    border: 2px solid #6A4E59;
+}
+
+/* Bouncing hand cursor for Comms */
+.nav-item:first-child {
+    cursor: pointer;
+}
+
+.nav-icon {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Comms Icon - Envelope with document */
+.comms-icon {
+    background-image: url('comms.png');
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+}
+
+/* Party Icon - Martini glass */
+.party-icon {
+    background-image: url('party.png');
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+}
+
+/* Gifts Icon - Gift box */
+.gifts-icon {
+    background-image: url('gifts.png');
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+}
+
+.nav-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6A4E59;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Updated shadow: X0, Y0, Blur10, 10% */
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    display: none;
+}
+
+.speech-bubble {
+    background-color: #FFEDED;
+    border: 1px solid #6A4E59;
+    border-radius: 20px;
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: 2px 2px 0px #000;
+    max-width: 250px;
+    min-width: 200px;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #6A4E59;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 21px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid #FFEDED;
+}
+
+.speech-bubble p {
+    font-size: 24px;
+    color: #6A4E59;
+    font-weight: normal;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-bar {
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    .nav-item {
+        padding: 12px 8px;
+    }
+    
+    .nav-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .nav-label {
+        font-size: 10px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .avatar {
+        margin-bottom: 15px;
+    }
+
+    .speech-bubble::before {
+        left: 50%;
+        top: -8px;
+        transform: translateX(-50%) rotate(90deg);
+        border-right: 8px solid #6A4E59;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+    }
+
+    .speech-bubble::after {
+        left: 50%;
+        top: -6px;
+        transform: translateX(-50%) rotate(90deg);
+        border-right: 7px solid #fff;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+    }
+}
+
+/* Comms Page */
+.comms-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 560px;
+    height: 400px;
+}
+
+.comms-container {
+    background-color: #FFE3EE;
+    border: 1px solid #6A4E59;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.comms-header {
+    background-color: #FFE3EE;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    height: 54px;
+    border-radius: 10px 10px 0 0;
+}
+
+.comms-inner {
+    background-color: #FFF;
+    border: 1px solid #6A4E59;
+    border-radius: 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 8px 8px 8px;
+}
+
+.close-icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.comms-header h2 {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #6A4E59;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.comms-content {
+    background-color: #FFF;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    padding: 16px;
+    border-radius: 0 0 4px 4px;
+}
+
+.scrollable-text {
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    font-family: 'Pixelify Sans', monospace;
+    color: #6A4E59;
+    line-height: 1.6;
+}
+
+.scrollable-text p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Gifts Page */
+.gift-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.gift-card {
+    width: 80px;
+    height: 50px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.gift-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.gift-card.lululemon {
+    background-color: #FF0000;
+}
+
+.gift-card.curio {
+    background-color: #000000;
+}
+
+.gift-card.kai {
+    background-color: #333333;
+}
+
+.gift-card.dussmann {
+    background-color: #FF0000;
+}
+
+.gift-card.amazon {
+    background-color: #000000;
+}
+
+.gift-card.cash {
+    background-color: #9B59B6;
+}
+
+.gift-card.shopkhoi {
+    background-color: #E3BEBA;
+}
+
+.gift-card.coat {
+    background-color: #F0E6D2;
+}
+
+.gift-card.boot {
+    background-color: #E8D5B7;
+}
+
+.gift-placeholder {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.gift-details {
+    flex: 1;
+}
+
+.gift-name {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6A4E59;
+    margin-bottom: 4px;
+}
+
+.gift-limit {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 12px;
+    color: #6A4E59;
+    opacity: 0.8;
+}
+
+.scrollable-text strong {
+    font-weight: bold;
+}
+
+/* Custom Scrollbar */
+.scrollable-text::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scrollable-text::-webkit-scrollbar-track {
+    background: #FFEDED;
+    border-radius: 6px;
+}
+
+.scrollable-text::-webkit-scrollbar-thumb {
+    background: #FFCEE2;
+    border-radius: 6px;
+    border: 1px solid #6A4E59;
+}
+
+.scrollable-text::-webkit-scrollbar-thumb:hover {
+    background: #FFB6D1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .main-content {
+        margin-top: 100px;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .nav-bar {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+        transform: none;
+        padding: 6px;
+        margin: 0 auto;
+    }
+    
+    .nav-item {
+        padding: 6px 8px;
+        font-size: 11px;
+        flex: 1;
+        text-align: center;
+    }
+    
+    .nav-label {
+        font-size: 11px;
+    }
+    
+    .avatar {
+        width: 50px;
+        height: 50px;
+        margin: 15px auto;
+    }
+    
+    .chat-bubble {
+        width: calc(100% - 30px);
+        max-width: 280px;
+        padding: 12px;
+        margin: 15px auto;
+    }
+    
+    .chat-bubble p {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+    
+    .comms-page, .rsvp-page, .gifts-page {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+        transform: translateY(-50%);
+        max-height: 90vh;
+        margin: 0 auto;
+    }
+    
+    .comms-container {
+        width: 100%;
+        height: 100%;
+        max-height: 90vh;
+    }
+    
+    .comms-inner {
+        margin: 0;
+        width: 100%;
+    }
+    
+    .comms-content {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    
+    .comms-header {
+        padding: 10px 12px;
+        height: 44px;
+    }
+    
+    .comms-header h2 {
+        font-size: 16px;
+    }
+    
+    .close-icon {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .scrollable-text {
+        padding: 10px;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .scrollable-text p {
+        font-size: 13px;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+    
+    .gift-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        padding: 10px;
+        margin-bottom: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .gift-card {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 6px;
+    }
+    
+    .gift-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .gift-placeholder {
+        font-size: 24px;
+    }
+    
+    .gift-details {
+        width: 100%;
+    }
+    
+    .gift-name {
+        font-size: 14px;
+        margin-bottom: 3px;
+        word-wrap: break-word;
+    }
+    
+    .gift-limit {
+        font-size: 12px;
+        word-wrap: break-word;
+    }
+    
+    .gift-link {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        width: 100%;
+    }
+}
+
+.gift-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.gift-link:hover {
+    opacity: 0.8;
+}
+
+.section-link {
+    color: #6A4E59;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.section-link:hover {
+    color: #C797AB;
+    text-decoration: none;
+}
